@@ -44,7 +44,7 @@ class Calculator:
 
     def show(self, draw_size):
         # header
-        print(f"{' ':3} {' ':40} {'Qty':<5s}  " + " ".join([f"{n}+{' ':8}" for n in range(1, self.hand_size+1)]))
+        print(f"{' ':3} {' ':40} {'Qty':<5s}  " + " ".join([f"{n}+{' ':8}" for n in range(1, draw_size+1)]))
 
         for idx, (c, q) in enumerate(zip(self.deck_list, self.deck_quantities)):
             print(f"{idx:3} {c:40} {q:<5d}  " + " ".join(["%.5f   " % self.draw_proba(i, q, draw_size) for i in range(q+1) if i>0 and i<=draw_size]))
@@ -58,7 +58,14 @@ class Calculator:
         return proba
 
     def none(self):
-        pass
+        while self.deck_size > 0:
+            try:
+                idxs = map(int, input("indexes of drawn card : ").split())
+                for idx in idxs:
+                    self.deck_quantities[idx] -= 1
+                self.show(1)
+            except:
+                return
 
 if __name__ == "__main__":
     Fire(Calculator)
