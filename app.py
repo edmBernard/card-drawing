@@ -46,7 +46,10 @@ class Calculator:
         # header
         print(f"{' ':3} {' ':40} {'Qty':<5s}  " + " ".join([f"{n}+{' ':8}" for n in range(1, draw_size+1)]))
 
-        for idx, (c, q) in enumerate(zip(self.deck_list, self.deck_quantities)):
+        # argsort
+        self.deck_quantities, self.deck_list = [list(i)[::-1] for i in zip(*sorted(zip(self.deck_quantities, self.deck_list)))]
+
+        for idx, (q, c) in enumerate(zip(self.deck_quantities, self.deck_list)):
             print(f"{idx:3} {c:40} {q:<5d}  " + " ".join(["%.5f   " % self.draw_proba(i, q, draw_size) for i in range(q+1) if i>0 and i<=draw_size]))
         print(f"{'Total':44} {self.deck_size}")
 
@@ -63,6 +66,9 @@ class Calculator:
                 idxs = map(int, input("indexes of drawn card : ").split())
                 for idx in idxs:
                     self.deck_quantities[idx] -= 1
+                    if self.deck_quantities[idx] < 0:
+                        print("Negative quantitiy of card : impossible")
+                        return
                 self.show(1)
             except:
                 return
