@@ -1,0 +1,23 @@
+Deck
+4 Torbran, Thane of Red Fell (ELD) 147
+17 Mountain (ELD) 262
+1 Chandra, Acolyte of Flame (M20) 126
+1 Skewer the Critics (RNA) 115
+2 Footlight Fiend (RNA) 216
+4 Shock (M19) 156
+4 Rimrock Knight (ELD) 137
+4 Scorch Spitter (M20) 159
+4 Runaway Steam-Kin (GRN) 115
+4 Fervent Champion (ELD) 124
+3 Slaying Fire (ELD) 143
+4 Castle Embereth (ELD) 239
+2 Tibalt, Rakish Instigator (WAR) 146
+4 Robber of the Rich (ELD) 138
+2 Light Up the Stage (RNA) 107
+
+Sideboard
+3 Chandra, Acolyte of Flame (M20) 126
+4 Experimental Frenzy (GRN) 99
+2 Tibalt, Rakish Instigator (WAR) 146
+4 Lava Coil (GRN) 108
+2 Chandra's Pyrohelix (WAR) 120
