@@ -34,25 +34,31 @@ class Calculator:
                     self.deck_list.append(m.group(2))
                     self.deck_quantities.append(int(m.group(1)))
 
+        self.show(self.hand_size)
 
-        for c, q in zip(self.deck_list, self.deck_quantities):
-            print(f"{c:40} {q:<5d} " + " ".join(["%.5f  " % self.draw_proba(i, q) for i in range(q+1) if i>0 and i<=self.hand_size]))
-
-        print(f"\n{'Total':40} {self.deck_size}")
 
     @property
     def deck_size(self):
         return sum(self.deck_quantities)
 
-    def show(self):
-        pass
 
-    def draw_proba(self, number_wanted_card, total_card):
+    def show(self, draw_size):
+        # header
+        print(f"{' ':3} {' ':40} {'Qty':<5s}  " + " ".join([f"{n}+{' ':8}" for n in range(1, self.hand_size+1)]))
+
+        for idx, (c, q) in enumerate(zip(self.deck_list, self.deck_quantities)):
+            print(f"{idx:3} {c:40} {q:<5d}  " + " ".join(["%.5f   " % self.draw_proba(i, q, draw_size) for i in range(q+1) if i>0 and i<=draw_size]))
+        print(f"{'Total':44} {self.deck_size}")
+
+
+    def draw_proba(self, number_wanted_card, total_card, draw_size):
         proba = 0
-        for k in range(number_wanted_card, min(total_card, self.hand_size) + 1):
-            proba += hypergeometric_dist(k, self.hand_size, total_card, self.deck_size)
+        for k in range(number_wanted_card, min(total_card, draw_size) + 1):
+            proba += hypergeometric_dist(k, draw_size, total_card, self.deck_size)
         return proba
 
+    def none(self):
+        pass
 
 if __name__ == "__main__":
     Fire(Calculator)
