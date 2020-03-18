@@ -2,7 +2,7 @@
 
 Small script to calculate card drawing probability (MTG)
 
-# Usage 1: Starting Propa
+### Usage 1: Starting Propa
 
 Show probability to draw each card given a 7 card hand
 
@@ -17,7 +17,7 @@ FLAGS
     --deck_file=DECK_FILE
 ```
 
-## Example Output:
+#### Example Output:
 
 ```
                                            Qty    1+         2+         3+         4+         5+         6+         7+
@@ -39,7 +39,7 @@ FLAGS
 Total                                        60
 ```
 
-# Usage 2: Interactive proba
+### Usage 2: Interactive proba
 
 Probability to draw each card given a 7 card hand. And probabilty to get next card given the already drawn cards. Each iteration you given the index of the card you draw.
 
@@ -55,7 +55,7 @@ FLAGS
 ```
 
 
-## Output Example for second iteration with a starting hand of (indexes of drawn card : 0 1 2 3 4 5 6)
+#### Output Example for second iteration with a starting hand of (indexes of drawn card : 0 1 2 3 4 5 6)
 
 ```
                                              Qty    1+
